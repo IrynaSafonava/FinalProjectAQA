@@ -8,17 +8,21 @@ import java.util.List;
 public class ResponseBodyUtil {
 
     public static <T> T GetObjectByJsonPath(ResponseBody responseBody,
-                                                  String jsonPath, Class<T> type) {
-        return responseBody.jsonPath().getObject(jsonPath, type);
+                                            String jsonPath, Class<T> type) {
+        return responseBody
+                .jsonPath()
+                .getObject(jsonPath, type);
     }
 
     public static <T> List<T> GetObjectsByJsonPath(ResponseBody responseBody,
-                                                  String jsonPath, Class<T> type) {
-        return responseBody.jsonPath().getList(jsonPath, type);
+                                                   String jsonPath, Class<T> type) {
+        return responseBody
+                .jsonPath()
+                .getList(jsonPath, type);
     }
 
-    public static String getStringJsonValue(ResponseBody responseBody, String jsonPath)
-    {
+    public static String getStringJsonValue(
+            ResponseBody responseBody, String jsonPath) {
         return JsonPath.from(responseBody.asString()).getString(jsonPath);
     }
 
