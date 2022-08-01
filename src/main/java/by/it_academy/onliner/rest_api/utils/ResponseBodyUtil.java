@@ -21,8 +21,8 @@ public class ResponseBodyUtil {
                 .getList(jsonPath, type);
     }
 
-    public static String getStringJsonValue(
-            ResponseBody responseBody, String jsonPath) {
+    public static String getStringJsonValue(ResponseBody responseBody, String jsonPath) {
+        System.out.println(responseBody);
         return JsonPath.from(responseBody.asString()).getString(jsonPath);
     }
 

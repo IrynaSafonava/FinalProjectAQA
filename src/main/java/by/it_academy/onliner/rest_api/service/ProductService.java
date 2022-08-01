@@ -12,17 +12,27 @@ import java.util.Map;
 
 public class ProductService {
 
-    private static final String SUSHI_JSON_PATH = "products";
+    private static final String PRODUCTS_JSON_PATH = "products";
+    private static final String PRODUCT_FILTER_OPTION_JSON_PATH = "products.name_prefix";
 
     public List<Product> getProductsItems() {
         ResponseBody responseBody = GetRequestUtil
                 .getResponseBody(PropertiesReader.getEndpointProperty("catalog.api.search.sushivesla"),
                         configureHeaders(), null);
         return ResponseBodyUtil
-                .GetObjectsByJsonPath(responseBody, SUSHI_JSON_PATH, Product.class);
+                .GetObjectsByJsonPath(responseBody, PRODUCTS_JSON_PATH, Product.class);
     }
 
     public static Map<String, Object> configureHeaders() {
         return ImmutableMap.of("Host", "catalog.onliner.by");
     }
+
+    public List<String> getProductFilterOptions() {
+        ResponseBody responseBody = GetRequestUtil
+                .getResponseBody(PropertiesReader.getEndpointProperty("catalog.api.search.sushivesla.filter"),
+                        configureHeaders(), null);
+
+        return ResponseBodyUtil.GetObjectsByJsonPath(responseBody, PRODUCT_FILTER_OPTION_JSON_PATH, String.class);
+    }
+
 }

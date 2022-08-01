@@ -27,5 +27,4 @@ public class PropertiesReader {
                     "Unable to load property from file" + fileName);
         }
     }
-
 }
