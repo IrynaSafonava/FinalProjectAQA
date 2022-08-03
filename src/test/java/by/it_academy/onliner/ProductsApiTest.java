@@ -31,9 +31,8 @@ public class ProductsApiTest {
     public void responseContainsFilterOption(){
 
         List<String> productFilterOptions = new ProductService().getProductFilterOptions();
-
-        productFilterOptions.forEach(element -> {
-            assertThat(element.equals("Роллы")).as("Response contains filter option").isTrue();
-        });
+        productFilterOptions.forEach(element -> assertThat(element.equals("Роллы"))
+                .as("Response contains filter option")
+                .isTrue());
     }
 }

@@ -9,16 +9,19 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Versions-->
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
-        <junit.jupiter.version>5.8.2</junit.jupiter.version>
+        <junit.jupiter.version>5.9.0</junit.jupiter.version>
         <junit.vintage.version>5.8.2</junit.vintage.version>
-        <junit.platform.version>1.8.2</junit.platform.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <chrome.driver.path>${project.basedir}/src/test/resources/chromedriver.exe</chrome.driver.path>
+        <junit.platform.version>1.9.0</junit.platform.version>
         <selenium.version>4.3.0</selenium.version>
         <assertj.version>3.23.1</assertj.version>
         <log4j.version>2.17.2</log4j.version>
+        <!-- Drivers-->
+<!--        <chrome.driver.path>${project.basedir}/src/test/resources/drivers/chromedriver.exe</chrome.driver.path>-->
+        <gecko.driver.path>${project.basedir}/src/test/resources/drivers/geckodriver.exe</gecko.driver.path>
     </properties>
     <build>
         <plugins>
@@ -28,7 +31,8 @@
                 <version>3.0.0-M1</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <webdriver.chrome.driver>${chrome.driver.path}</webdriver.chrome.driver>
+<!--                        <webdriver.chrome.driver>${chrome.driver.path}</webdriver.chrome.driver>-->
+                        <webdriver.gecko.driver>${gecko.driver.path}</webdriver.gecko.driver>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -113,7 +117,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.2.0</version>
+            <version>5.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>

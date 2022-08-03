@@ -31,8 +31,8 @@ public class ProductService {
         ResponseBody responseBody = GetRequestUtil
                 .getResponseBody(PropertiesReader.getEndpointProperty("catalog.api.search.sushivesla.filter"),
                         configureHeaders(), null);
-
-        return ResponseBodyUtil.GetObjectsByJsonPath(responseBody, PRODUCT_FILTER_OPTION_JSON_PATH, String.class);
+        return ResponseBodyUtil
+                .GetObjectsByJsonPath(responseBody, PRODUCT_FILTER_OPTION_JSON_PATH, String.class);
     }
 
 }
