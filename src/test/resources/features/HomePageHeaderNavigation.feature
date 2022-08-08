@@ -1,6 +1,5 @@
 Feature: As a user I want to navigate site via header submenu options.
 
-  @smoke
   Scenario: Navigation header submenu of 'Автобарахолка' contains options.
     Given user navigates home page
     When user hovers 'Автобарахолка' category in header
@@ -13,7 +12,6 @@ Feature: As a user I want to navigate site via header submenu options.
       | Авто до 4000 р.   |
       | Авто до 10 000 р. |
 
-  @smoke
   Scenario: Navigation header submenu of 'Дома и квартиры' contains options.
     Given user navigates home page
     When user hovers 'Дома и квартиры' category in header

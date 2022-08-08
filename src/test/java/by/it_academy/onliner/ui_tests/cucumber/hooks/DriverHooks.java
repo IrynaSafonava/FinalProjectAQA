@@ -1,4 +1,4 @@
-package by.it_academy.onliner.cucumber.hooks;
+package by.it_academy.onliner.ui_tests.cucumber.hooks;
 
 import by.it_academy.onliner.driver.DriverManager;
 import io.cucumber.java.After;

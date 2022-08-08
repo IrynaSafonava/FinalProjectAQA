@@ -1,4 +1,4 @@
-package by.it_academy.onliner.cucumber.step_definition;
+package by.it_academy.onliner.ui_tests.cucumber.step_definition;
 
 import by.it_academy.onliner.page_object.HomePage;
 import io.cucumber.java.en.Given;

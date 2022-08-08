@@ -1,4 +1,4 @@
-package by.it_academy.onliner;
+package by.it_academy.onliner.ui_tests;
 
 import by.it_academy.onliner.driver.DriverManager;
 import by.it_academy.onliner.page_object.CatalogPage;

@@ -1,4 +1,4 @@
-package by.it_academy.onliner;
+package by.it_academy.onliner.api_tests;
 
 import by.it_academy.onliner.rest_api.model.Product;
 import by.it_academy.onliner.rest_api.service.ProductService;
