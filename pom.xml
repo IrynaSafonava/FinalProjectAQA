@@ -20,9 +20,6 @@
         <assertj.version>3.23.1</assertj.version>
         <log4j.version>2.18.0</log4j.version>
         <aspectj.version>1.9.8</aspectj.version>
-        <!-- Drivers-->
-        <chrome.driver.path>${project.basedir}/src/test/resources/drivers/chromedriver.exe</chrome.driver.path>
-        <gecko.driver.path>${project.basedir}/src/test/resources/drivers/geckodriver.exe</gecko.driver.path>
     </properties>
     <build>
         <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
@@ -33,10 +30,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M7</version>
                 <configuration>
-                    <systemPropertyVariables>
-                        <webdriver.chrome.driver>${chrome.driver.path}</webdriver.chrome.driver>
-                        <webdriver.gecko.driver>${gecko.driver.path}</webdriver.gecko.driver>
-                    </systemPropertyVariables>
+                    <properties>
+                        <configurationParameters>
+                            junit.jupiter.execution.parallel.enabled=true
+                            junit.jupiter.execution.parallel.mode.default=concurrent
+                        </configurationParameters>
+                    </properties>
                 </configuration>
             </plugin>
             <plugin>
@@ -125,7 +124,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.2.1</version>
+            <version>5.2.2</version>
         </dependency>
     </dependencies>
 </project>
