@@ -1,23 +1,16 @@
 package by.it_academy.onliner.driver;
 
-import io.cucumber.core.internal.com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.time.Duration;
 import java.util.Optional;
-import java.util.Properties;
-
-import static org.openqa.selenium.chrome.ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY;
-//import static org.openqa.selenium.firefox.GeckoDriverService.GECKO_DRIVER_EXE_PROPERTY;
 
 public class DriverManager {
     private static final int IMPLICIT_WAIT_TIMEOUT = 5;
     private static final int PAGE_LOAD_TIMEOUT = 20;
     private static ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
+    private static CapabilityFactory capabilityFactory = new CapabilityFactory();
 
     private DriverManager() {
         if (webDriverThreadLocal.get() == null) {

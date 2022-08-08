@@ -3,6 +3,7 @@ package by.it_academy.onliner;
 import by.it_academy.onliner.rest_api.model.Product;
 import by.it_academy.onliner.rest_api.service.ProductService;
 import jdk.jfr.Description;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -15,24 +16,26 @@ public class ProductsApiTest {
     public void productValuesNotEmpty() {
         List<Product> productList = new ProductService().getProductsItems();
 
-        productList.forEach(product -> {
-            assertThat(product.getId()).as("ID of " + product + " is not null")
-                    .isNotNull();
-            assertThat(product.getFull_name()).as("Full_name of " + product + " is not null")
-                    .isNotEmpty();
-            assertThat(product.getName()).as("Name of " + product + " is not null")
-                    .isNotEmpty();
-            assertThat(product.getKey()).as("Key of " + product + " is not null")
-                    .isNotEmpty();
-        });
+        SoftAssertions softly = new SoftAssertions();
+
+        softly.assertThat(productList)
+                .as("ID is not null").extracting(Product::getId).isNotNull();
+        softly.assertThat(productList)
+                .as("Full_name is not null").extracting(Product::getFull_name).isNotEmpty();
+        softly.assertThat(productList)
+                .as("Name is not null").extracting(Product::getName).isNotEmpty();
+        softly.assertThat(productList)
+                .as("Key is not null").extracting(Product::getKey).isNotEmpty();
+        softly.assertAll();
     }
     @Test
     @Description("Product items from response contain required filter option prefix")
     public void responseContainsFilterOption(){
 
         List<String> productFilterOptions = new ProductService().getProductFilterOptions();
-        productFilterOptions.forEach(element -> assertThat(element.equals("Роллы"))
+
+        assertThat(productFilterOptions)
                 .as("Response contains filter option")
-                .isTrue());
+                .allMatch(option -> option.equals("Роллы"));
     }
 }
