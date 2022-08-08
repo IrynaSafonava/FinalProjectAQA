@@ -9,8 +9,7 @@ import java.util.Optional;
 public class DriverManager {
     private static final int IMPLICIT_WAIT_TIMEOUT = 5;
     private static final int PAGE_LOAD_TIMEOUT = 20;
-    private static ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
-    private static CapabilityFactory capabilityFactory = new CapabilityFactory();
+    private static ThreadLocal<RemoteWebDriver> webDriverThreadLocal = new ThreadLocal<>();
 
     private DriverManager() {
         if (webDriverThreadLocal.get() == null) {

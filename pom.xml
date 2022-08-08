@@ -22,7 +22,7 @@
         <aspectj.version>1.9.8</aspectj.version>
         <!-- Drivers-->
         <chrome.driver.path>${project.basedir}/src/test/resources/drivers/chromedriver.exe</chrome.driver.path>
-        <firefox.driver.path>${project.basedir}/src/test/resources/drivers/geckodriver.exe</firefox.driver.path>
+        <gecko.driver.path>${project.basedir}/src/test/resources/drivers/geckodriver.exe</gecko.driver.path>
     </properties>
     <build>
         <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
@@ -33,19 +33,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M7</version>
                 <configuration>
-<!--                    <properties>-->
-<!--                        <configurationParameters>-->
-<!--                            junit.jupiter.execution.parallel.enabled=true-->
-<!--                            junit.jupiter.execution.parallel.mode.default=concurrent-->
-<!--                        </configurationParameters>-->
-<!--                    </properties>-->
                     <systemPropertyVariables>
                         <webdriver.chrome.driver>${chrome.driver.path}</webdriver.chrome.driver>
-<!--                        <webdriver.gecko.driver>${firefox.driver.path}</webdriver.gecko.driver>-->
+                        <webdriver.gecko.driver>${gecko.driver.path}</webdriver.gecko.driver>
                     </systemPropertyVariables>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
                 </configuration>
             </plugin>
             <plugin>
