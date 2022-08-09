@@ -1,8 +1,9 @@
-package by.it_academy.onliner.ui_tests.junit.local;
+package by.it_academy.onliner.ui_tests.junit;
 
 import by.it_academy.onliner.page_object.CatalogPage;
 import by.it_academy.onliner.page_object.HomePage;
-import by.it_academy.onliner.parallel_local.WebDriverFactoryStaticThreadLocal;
+
+import by.it_academy.onliner.driver.WebDriverFactoryStaticThread;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -23,7 +24,7 @@ public class CatalogPageTest {
 
     @BeforeAll
     public static void setUpBrowser() {
-        WebDriverFactoryStaticThreadLocal.setDriver(System.getProperty("driverType"));
+        WebDriverFactoryStaticThread.setDriver(System.getProperty("driverType"));
         System.out.println("set Up: " + Thread.currentThread().getId());
         HomePage homepage = new HomePage();
         homepage.openOnlinerWebsite();
@@ -96,12 +97,11 @@ public class CatalogPageTest {
         softly.assertThat(listOfItemsDescriptionsWithProductQnt)
                 .as("Category items have quantity")
                 .hasSize(categoryItemsNumber);
-
         softly.assertAll();
     }
 
     @AfterAll
     public static void closeBrowser() {
-        WebDriverFactoryStaticThreadLocal.closeDriver();
+        WebDriverFactoryStaticThread.closeDriver();
     }
 }

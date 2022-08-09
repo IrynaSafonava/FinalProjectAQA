@@ -1,6 +1,6 @@
 package by.it_academy.onliner.page_object;
 
-import by.it_academy.onliner.parallel_local.WebDriverFactoryStaticThreadLocal;
+import by.it_academy.onliner.driver.WebDriverFactoryStaticThread;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -19,7 +19,7 @@ public class HomePage extends BasePage {
                     "//span[@class='b-main-navigation__dropdown-advert-sign']";
 
     public void openOnlinerWebsite() {
-        WebDriverFactoryStaticThreadLocal.getDriver().get(HOME_PAGE_URL);
+        WebDriverFactoryStaticThread.getDriver().get(HOME_PAGE_URL);
     }
 
     public void clickHeaderNavigationLink(String option) {

@@ -1,4 +1,4 @@
-package by.it_academy.onliner.parallel_remote;
+package by.it_academy.onliner.driver;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 

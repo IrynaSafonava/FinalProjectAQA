@@ -6,15 +6,15 @@ import java.util.Properties;
 
 public class PropertiesReader {
 
-    private static final String ENDPOINTS_FILE = "/endpoints.properties";
-    private static final Properties ENDPOINTS_PROPERTIES = new Properties();
+    private static final String PROPERTIES_FILE = "/application.properties";
+    private static final Properties APPLICATION_PROPERTIES = new Properties();
 
     static {
-        initProperties(ENDPOINTS_PROPERTIES, ENDPOINTS_FILE);
+        initProperties(APPLICATION_PROPERTIES, PROPERTIES_FILE);
     }
 
     public static String getEndpointProperty(String property) {
-        return ENDPOINTS_PROPERTIES.getProperty(property);
+        return APPLICATION_PROPERTIES.getProperty(property);
     }
 
     private static synchronized void initProperties(Properties properties, String fileName)

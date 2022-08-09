@@ -1,6 +1,6 @@
 package by.it_academy.onliner.page_object;
 
-import by.it_academy.onliner.parallel_local.WebDriverFactoryStaticThreadLocal;
+import by.it_academy.onliner.driver.WebDriverFactoryStaticThread;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -17,21 +17,21 @@ import java.util.List;
 public abstract class BasePage {
 
     public BasePage() {
-        PageFactory.initElements(WebDriverFactoryStaticThreadLocal.getDriver(), this);
+        PageFactory.initElements(WebDriverFactoryStaticThread.getDriver(), this);
     }
 
     public WebElement waitForElementToBeVisible(By by) {
-        Wait<WebDriver> wait = new WebDriverWait(WebDriverFactoryStaticThreadLocal.getDriver(), Duration.ofSeconds(15));
+        Wait<WebDriver> wait = new WebDriverWait(WebDriverFactoryStaticThread.getDriver(), Duration.ofSeconds(20));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     public List<WebElement> getListOfElements(By by) {
-        return WebDriverFactoryStaticThreadLocal.getDriver().findElements(by);
+        return WebDriverFactoryStaticThread.getDriver().findElements(by);
     }
 
     public void hoverElement(By by) {
         WebElement element = waitForElementToBeVisible(by);
-        Actions action = new Actions(WebDriverFactoryStaticThreadLocal.getDriver());
+        Actions action = new Actions(WebDriverFactoryStaticThread.getDriver());
         action.moveToElement(element).perform();
     }
 
