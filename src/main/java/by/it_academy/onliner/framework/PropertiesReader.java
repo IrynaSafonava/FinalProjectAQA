@@ -13,7 +13,7 @@ public class PropertiesReader {
         initProperties(APPLICATION_PROPERTIES, PROPERTIES_FILE);
     }
 
-    public static String getEndpointProperty(String property) {
+    public static String getApplicationProperty(String property) {
         return APPLICATION_PROPERTIES.getProperty(property);
     }
 

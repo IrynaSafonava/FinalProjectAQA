@@ -19,11 +19,13 @@ public class WebDriverFactoryStaticThread {
     private static final int PAGE_LOAD_TIMEOUT = 20;
 
     public static void setDriver(String browser) {
-        String property = PropertiesReader.getEndpointProperty("webdriver.thread");
+        String property = PropertiesReader.getApplicationProperty("webdriver.thread");
         if ("local".equals(property)) {
             setLocalDriver(browser);
         } else if ("remote".equals(property)) {
             setRemoteDriver(browser);
+        } else {
+            System.out.println("No property found");
         }
     }
 
@@ -46,15 +48,13 @@ public class WebDriverFactoryStaticThread {
 
     private static void setRemoteDriver(String browser) {
         try {
-            driver.set(new RemoteWebDriver(new URL("http://172.19.160.1:4444/"),
+            driver.set(new RemoteWebDriver(new URL(PropertiesReader.getApplicationProperty("selenium.grid.url")),
                     capabilityFactory.getCapabilities(browser)));
         } catch (MalformedURLException e) {
             System.out.println("Cannot create connection with remote server");
             e.printStackTrace();
         }
     }
-
-
 
     public static WebDriver getDriver() {
         return driver.get();

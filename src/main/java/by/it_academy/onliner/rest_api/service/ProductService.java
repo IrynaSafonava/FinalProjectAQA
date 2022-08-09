@@ -17,7 +17,7 @@ public class ProductService {
 
     public List<Product> getProductsItems() {
         ResponseBody responseBody = GetRequestUtil
-                .getResponseBody(PropertiesReader.getEndpointProperty("catalog.api.search.sushivesla"),
+                .getResponseBody(PropertiesReader.getApplicationProperty("catalog.api.search.sushivesla"),
                         configureHeaders(), null);
         return ResponseBodyUtil
                 .GetObjectsByJsonPath(responseBody, PRODUCTS_JSON_PATH, Product.class);
@@ -29,7 +29,7 @@ public class ProductService {
 
     public List<String> getProductFilterOptions() {
         ResponseBody responseBody = GetRequestUtil
-                .getResponseBody(PropertiesReader.getEndpointProperty("catalog.api.search.sushivesla.filter"),
+                .getResponseBody(PropertiesReader.getApplicationProperty("catalog.api.search.sushivesla.filter"),
                         configureHeaders(), null);
         return ResponseBodyUtil
                 .GetObjectsByJsonPath(responseBody, PRODUCT_FILTER_OPTION_JSON_PATH, String.class);
