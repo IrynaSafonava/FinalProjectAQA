@@ -24,8 +24,7 @@ public class WebDriverFactoryStaticThread {
             setLocalDriver(browser);
         } else if ("remote".equals(property)) {
             setRemoteDriver(browser);
-        }
-        else {
+        } else {
             System.out.println("No threadType found");
         }
     }

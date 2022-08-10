@@ -4,6 +4,7 @@ import by.it_academy.onliner.page_object.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
